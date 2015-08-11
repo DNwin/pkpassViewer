@@ -32,18 +32,43 @@ PKAddPassesViewControllerDelegate>
     // Init objects
     _passes = [[NSMutableArray alloc] init];
     
-    // Load passes from folder
+    // Get path of all resources
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    // Get an array of all filenames in resourcepath
     NSArray *passFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:resourcePath error:nil];
     
-    NSLog(@"Files %@", passFiles);
     // Loop over resource files and add .pkpass files
     for (NSString *passFile in passFiles) {
         if ( [passFile hasSuffix:@".pkpass"]) {
             [self.passes addObject: passFile];
-            NSLog(@"adding object: %@", passFile);
         }
     }
+}
+
+#pragma mark - Private
+
+- (void)openPassWithName:(NSString *)name {
+    
+    // Get path with filename
+    // /private/var/mobile/Containers/Bundle/Application/3369688D-8E40-450F-BD9F-86AA8E195B7A/pkpassViewer.app/FreeHug.pkpass
+    NSString *passFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: name];
+    // Retrieve file data
+    NSData *passData = [NSData dataWithContentsOfFile:passFilePath];
+    
+    NSError *error = nil;
+    PKPass *newPass = [[PKPass alloc] initWithData:passData error:&error];
+    
+    if (error != nil) {
+        [[[UIAlertView alloc] initWithTitle:@"Passes error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        return;
+    }
+    
+    // Show prompt to add pass to pass library
+    PKAddPassesViewController *addController = [[PKAddPassesViewController alloc] initWithPass:newPass];
+    addController.delegate = self;
+    [self presentViewController:addController animated:YES completion:nil];
+    
+    
 }
 
 #pragma mark - Table View
@@ -66,4 +91,9 @@ PKAddPassesViewControllerDelegate>
     return cell;
 }
 
+// On cell selection
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath  {
+    NSString *passName = self.passes[indexPath.row];
+    [self openPassWithName:passName];
+}
 @end
