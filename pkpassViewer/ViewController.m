@@ -36,10 +36,12 @@ PKAddPassesViewControllerDelegate>
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
     NSArray *passFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:resourcePath error:nil];
     
+    NSLog(@"Files %@", passFiles);
     // Loop over resource files and add .pkpass files
     for (NSString *passFile in passFiles) {
-        if ( [passFile hasPrefix:@".pkpass"]) {
+        if ( [passFile hasSuffix:@".pkpass"]) {
             [self.passes addObject: passFile];
+            NSLog(@"adding object: %@", passFile);
         }
     }
 }

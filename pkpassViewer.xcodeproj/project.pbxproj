@@ -14,6 +14,11 @@
 		9574D9CA1B79A80C002D26D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9574D9C91B79A80C002D26D2 /* Images.xcassets */; };
 		9574D9CD1B79A80C002D26D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9574D9CB1B79A80C002D26D2 /* LaunchScreen.xib */; };
 		9574D9D91B79A80C002D26D2 /* pkpassViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9574D9D81B79A80C002D26D2 /* pkpassViewerTests.m */; };
+		95F263301B79F2580005D0F2 /* BoardingPass.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 95F2632B1B79F2580005D0F2 /* BoardingPass.pkpass */; };
+		95F263311B79F2580005D0F2 /* CardDivingMember.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 95F2632C1B79F2580005D0F2 /* CardDivingMember.pkpass */; };
+		95F263321B79F2580005D0F2 /* ConcertTicket.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 95F2632D1B79F2580005D0F2 /* ConcertTicket.pkpass */; };
+		95F263331B79F2580005D0F2 /* FreeHug.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 95F2632E1B79F2580005D0F2 /* FreeHug.pkpass */; };
+		95F263341B79F2580005D0F2 /* GenericPass.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 95F2632F1B79F2580005D0F2 /* GenericPass.pkpass */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		9574D9D21B79A80C002D26D2 /* pkpassViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pkpassViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9574D9D71B79A80C002D26D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9574D9D81B79A80C002D26D2 /* pkpassViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pkpassViewerTests.m; sourceTree = "<group>"; };
+		95F2632B1B79F2580005D0F2 /* BoardingPass.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = BoardingPass.pkpass; sourceTree = "<group>"; };
+		95F2632C1B79F2580005D0F2 /* CardDivingMember.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = CardDivingMember.pkpass; sourceTree = "<group>"; };
+		95F2632D1B79F2580005D0F2 /* ConcertTicket.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = ConcertTicket.pkpass; sourceTree = "<group>"; };
+		95F2632E1B79F2580005D0F2 /* FreeHug.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreeHug.pkpass; sourceTree = "<group>"; };
+		95F2632F1B79F2580005D0F2 /* GenericPass.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; path = GenericPass.pkpass; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 		9574D9BB1B79A80C002D26D2 /* pkpassViewer */ = {
 			isa = PBXGroup;
 			children = (
+				95F2632A1B79F1FE0005D0F2 /* Passes */,
 				9574D9C01B79A80C002D26D2 /* AppDelegate.h */,
 				9574D9C11B79A80C002D26D2 /* AppDelegate.m */,
 				9574D9C31B79A80C002D26D2 /* ViewController.h */,
@@ -117,6 +128,18 @@
 				9574D9D71B79A80C002D26D2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95F2632A1B79F1FE0005D0F2 /* Passes */ = {
+			isa = PBXGroup;
+			children = (
+				95F2632B1B79F2580005D0F2 /* BoardingPass.pkpass */,
+				95F2632C1B79F2580005D0F2 /* CardDivingMember.pkpass */,
+				95F2632D1B79F2580005D0F2 /* ConcertTicket.pkpass */,
+				95F2632E1B79F2580005D0F2 /* FreeHug.pkpass */,
+				95F2632F1B79F2580005D0F2 /* GenericPass.pkpass */,
+			);
+			name = Passes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +222,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F263301B79F2580005D0F2 /* BoardingPass.pkpass in Resources */,
 				9574D9C81B79A80C002D26D2 /* Main.storyboard in Resources */,
 				9574D9CD1B79A80C002D26D2 /* LaunchScreen.xib in Resources */,
+				95F263311B79F2580005D0F2 /* CardDivingMember.pkpass in Resources */,
+				95F263321B79F2580005D0F2 /* ConcertTicket.pkpass in Resources */,
 				9574D9CA1B79A80C002D26D2 /* Images.xcassets in Resources */,
+				95F263341B79F2580005D0F2 /* GenericPass.pkpass in Resources */,
+				95F263331B79F2580005D0F2 /* FreeHug.pkpass in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +446,7 @@
 				9574D9DE1B79A80C002D26D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9574D9DF1B79A80C002D26D2 /* Build configuration list for PBXNativeTarget "pkpassViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +455,7 @@
 				9574D9E11B79A80C002D26D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
