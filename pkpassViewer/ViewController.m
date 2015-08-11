@@ -42,11 +42,26 @@ PKAddPassesViewControllerDelegate>
             [self.passes addObject: passFile];
         }
     }
-    
-    
-    
-    
 }
 
+#pragma mark - Table View
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.passes.count;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    NSString *passName = self.passes[indexPath.row];
+    cell.textLabel.text = passName;
+    
+    return cell;
+}
 
 @end
