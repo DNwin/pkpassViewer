@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+@import PassKit;
 
 @interface ViewController ()
+<UITableViewDelegate, UITableViewDataSource,
+PKAddPassesViewControllerDelegate>
+
+@property (strong, nonatomic) NSMutableArray *passes; // Holds pkpasses
 
 @end
 
@@ -16,12 +21,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Check to see if passbook is available and exit if not
+    if (![PKPassLibrary isPassLibraryAvailable]) {
+        // Display error message
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Passkit not available" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        
+        return;
+    }
+    
+    // Init objects
+    _passes = [[NSMutableArray alloc] init];
+    
+    // Load passes from folder
+    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSArray *passFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:resourcePath error:nil];
+    
+    // Loop over resource files and add .pkpass files
+    for (NSString *passFile in passFiles) {
+        if ( [passFile hasPrefix:@".pkpass"]) {
+            [self.passes addObject: passFile];
+        }
+    }
+    
+    
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
